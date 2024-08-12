@@ -62,6 +62,7 @@ public class PacmanMap {
                     panelGrid[x][y].setPanels(up, down, next, before);
                 }
             }
+
             packguy = new PackmanFigure(panelGrid[startRow][startCol]);
             packguy.getCurrentPanel().setContain(3);
             redG = new Ghost(panelGrid[10][14], 0, 7);
@@ -126,7 +127,7 @@ public class PacmanMap {
                 switch (panelGrid[i][j].getContain()) {
                     case 1:
                         try {
-                            ballImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\ball3.png"));
+                            ballImg = ImageIO.read(new File("assets/ball3.png"));
                             pic = new JLabel(new ImageIcon(ballImg));
                             panelGrid[i][j].getPanel().add(pic);
                         } catch (IOException e) {
@@ -134,7 +135,7 @@ public class PacmanMap {
                         break;
                     case 2:
                         try {
-                            bigBallImg = ImageIO.read(new File(("C:\\Users\\user\\Desktop\\packman game\\bigball3.png")));
+                            bigBallImg = ImageIO.read(new File(("assets/bigball3.png")));
                             pic = new JLabel(new ImageIcon(bigBallImg));
                             panelGrid[i][j].getPanel().add(pic);
                         } catch (IOException e) {
@@ -144,7 +145,7 @@ public class PacmanMap {
                         switch (packguy.getDir()) {
                             case 0:
                                 try {
-                                    pacImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\leftPac.png"));
+                                    pacImg = ImageIO.read(new File("assets/leftPac.png"));
                                     pic = new JLabel(new ImageIcon(pacImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -152,7 +153,7 @@ public class PacmanMap {
                                 break;
                             case 1:
                                 try {
-                                    pacImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\upPac.png"));
+                                    pacImg = ImageIO.read(new File("assets/upPac.png"));
                                     pic = new JLabel(new ImageIcon(pacImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -160,7 +161,7 @@ public class PacmanMap {
                                 break;
                             case 2:
                                 try {
-                                    pacImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\rightPac.png"));
+                                    pacImg = ImageIO.read(new File("assets/rightPac.png"));
                                     pic = new JLabel(new ImageIcon(pacImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -168,7 +169,7 @@ public class PacmanMap {
                                 break;
                             case 3:
                                 try {
-                                    pacImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\downPac.png"));
+                                    pacImg = ImageIO.read(new File("assets/downPac.png"));
                                     pic = new JLabel(new ImageIcon(pacImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -180,7 +181,7 @@ public class PacmanMap {
                         switch (orangeG.getDir()) {
                             case 0:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\leftOrange.png"));
+                                    ghostImg = ImageIO.read(new File("assets/leftOrange.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -188,7 +189,7 @@ public class PacmanMap {
                                 break;
                             case 1:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\upOrange.png"));
+                                    ghostImg = ImageIO.read(new File("assets/upOrange.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -196,7 +197,7 @@ public class PacmanMap {
                                 break;
                             case 2:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\rightOrange.png"));
+                                    ghostImg = ImageIO.read(new File("assets/rightOrange.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -204,7 +205,7 @@ public class PacmanMap {
                                 break;
                             case 3:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\downOrange.png"));
+                                    ghostImg = ImageIO.read(new File("assets/downOrange.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -216,7 +217,7 @@ public class PacmanMap {
                         switch (pinkG.getDir()) {
                             case 0:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\leftPink.png"));
+                                    ghostImg = ImageIO.read(new File("assets/leftPink.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -224,7 +225,7 @@ public class PacmanMap {
                                 break;
                             case 1:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\upPink.png"));
+                                    ghostImg = ImageIO.read(new File("assets/upPink.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -232,7 +233,7 @@ public class PacmanMap {
                                 break;
                             case 2:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\rightPink.png"));
+                                    ghostImg = ImageIO.read(new File("assets/rightPink.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -240,7 +241,7 @@ public class PacmanMap {
                                 break;
                             case 3:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\downPink.png"));
+                                    ghostImg = ImageIO.read(new File("assets/downPink.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -252,7 +253,7 @@ public class PacmanMap {
                         switch (cyanG.getDir()) {
                             case 0:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\leftCyan.png"));
+                                    ghostImg = ImageIO.read(new File("assets/leftCyan.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -260,7 +261,7 @@ public class PacmanMap {
                                 break;
                             case 1:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\upCyan.png"));
+                                    ghostImg = ImageIO.read(new File("assets/upCyan.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -268,7 +269,7 @@ public class PacmanMap {
                                 break;
                             case 2:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\rightCyan.png"));
+                                    ghostImg = ImageIO.read(new File("assets/rightCyan.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -276,7 +277,7 @@ public class PacmanMap {
                                 break;
                             case 3:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\downCyan.png"));
+                                    ghostImg = ImageIO.read(new File("assets/downCyan.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -288,7 +289,7 @@ public class PacmanMap {
                         switch (redG.getDir()) {
                             case 0:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\leftRed.png"));
+                                    ghostImg = ImageIO.read(new File("assets/leftRed.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -296,7 +297,7 @@ public class PacmanMap {
                                 break;
                             case 1:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\upRed.png"));
+                                    ghostImg = ImageIO.read(new File("assets/upRed.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -304,7 +305,7 @@ public class PacmanMap {
                                 break;
                             case 2:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\rightRed.png"));
+                                    ghostImg = ImageIO.read(new File("assets/rightRed.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
@@ -312,7 +313,7 @@ public class PacmanMap {
                                 break;
                             case 3:
                                 try {
-                                    ghostImg = ImageIO.read(new File("C:\\Users\\user\\Desktop\\packman game\\downRed.png"));
+                                    ghostImg = ImageIO.read(new File("assets/downRed.png"));
                                     pic = new JLabel(new ImageIcon(ghostImg));
                                     panelGrid[i][j].getPanel().add(pic);
                                 } catch (IOException e) {
