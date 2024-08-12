@@ -14,7 +14,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="2A52vhKJtfxq8X7e7mINOwy2SU6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,7 +26,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IdeaProjects/Zolelot" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -77,22 +81,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="981" height="229" key="GridCell.Tab.0.bottom" timestamp="1723443969605">
+    <state x="181" y="122" key="FileChooserDialogImpl" timestamp="1723445053071">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
-    <state width="981" height="229" key="GridCell.Tab.0.bottom/0.0.1024.728@0.0.1024.728" timestamp="1723443969605" />
-    <state width="981" height="229" key="GridCell.Tab.0.center" timestamp="1723443969605">
+    <state x="181" y="122" key="FileChooserDialogImpl/0.0.1024.728@0.0.1024.728" timestamp="1723445053071" />
+    <state width="742" height="229" key="GridCell.Tab.0.bottom" timestamp="1723445053078">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
-    <state width="981" height="229" key="GridCell.Tab.0.center/0.0.1024.728@0.0.1024.728" timestamp="1723443969605" />
-    <state width="981" height="229" key="GridCell.Tab.0.left" timestamp="1723443969605">
+    <state width="742" height="229" key="GridCell.Tab.0.bottom/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
+    <state width="742" height="229" key="GridCell.Tab.0.center" timestamp="1723445053078">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
-    <state width="981" height="229" key="GridCell.Tab.0.left/0.0.1024.728@0.0.1024.728" timestamp="1723443969605" />
-    <state width="981" height="229" key="GridCell.Tab.0.right" timestamp="1723443969605">
+    <state width="742" height="229" key="GridCell.Tab.0.center/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
+    <state width="742" height="229" key="GridCell.Tab.0.left" timestamp="1723445053078">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
-    <state width="981" height="229" key="GridCell.Tab.0.right/0.0.1024.728@0.0.1024.728" timestamp="1723443969605" />
+    <state width="742" height="229" key="GridCell.Tab.0.left/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
+    <state width="742" height="229" key="GridCell.Tab.0.right" timestamp="1723445053078">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="742" height="229" key="GridCell.Tab.0.right/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
