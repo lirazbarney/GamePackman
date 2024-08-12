@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9529bdc1-f173-4cc7-aa8c-42865b0d5924" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PacmanMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,34 +98,12 @@
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="181" y="122" key="FileChooserDialogImpl" timestamp="1723445053071">
-      <screen x="0" y="0" width="1024" height="728" />
-    </state>
-    <state x="181" y="122" key="FileChooserDialogImpl/0.0.1024.728@0.0.1024.728" timestamp="1723445053071" />
-    <state width="742" height="229" key="GridCell.Tab.0.bottom" timestamp="1723445053078">
-      <screen x="0" y="0" width="1024" height="728" />
-    </state>
-    <state width="742" height="229" key="GridCell.Tab.0.bottom/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
-    <state width="742" height="229" key="GridCell.Tab.0.center" timestamp="1723445053078">
-      <screen x="0" y="0" width="1024" height="728" />
-    </state>
-    <state width="742" height="229" key="GridCell.Tab.0.center/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
-    <state width="742" height="229" key="GridCell.Tab.0.left" timestamp="1723445053078">
-      <screen x="0" y="0" width="1024" height="728" />
-    </state>
-    <state width="742" height="229" key="GridCell.Tab.0.left/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
-    <state width="742" height="229" key="GridCell.Tab.0.right" timestamp="1723445053078">
-      <screen x="0" y="0" width="1024" height="728" />
-    </state>
-    <state width="742" height="229" key="GridCell.Tab.0.right/0.0.1024.728@0.0.1024.728" timestamp="1723445053078" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/out/production/GamePackman/PacmanMap.class</url>
-          <line>178</line>
+          <line>140</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

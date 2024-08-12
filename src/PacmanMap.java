@@ -67,51 +67,53 @@ public class PacmanMap {
             packguy.getCurrentPanel().setContain(3);
             redG = new Ghost(panelGrid[10][14], 0, 7);
             panelbuttons = new JPanel();
-            panelbuttons.setBorder(BorderFactory.createTitledBorder(""));
-            panelbuttons.setLayout(new FlowLayout());
-            upb = new JButton("up button");
-            downb = new JButton("down button");
-            leftb = new JButton("left button");
-            rightb = new JButton("right button");
-            upb.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    keyPressed = 38;
-                    handle();
-                }
-            });
-            downb.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    keyPressed = 40;
-                    handle();
-                }
-            });
-            leftb.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    keyPressed = 37;
-                    handle();
-                }
-            });
-            rightb.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    keyPressed = 39;
-                    handle();
-                }
-            });
-            panelbuttons.add(upb);
-            panelbuttons.add(rightb);
-            panelbuttons.add(leftb);
-            panelbuttons.add(downb);
+//            panelbuttons.setBorder(BorderFactory.createTitledBorder(""));
+//            panelbuttons.setLayout(new FlowLayout());
+//            upb = new JButton("up button");
+//            downb = new JButton("down button");
+//            leftb = new JButton("left button");
+//            rightb = new JButton("right button");
+//            upb.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    keyPressed = 38;
+//                    handle();
+//                }
+//            });
+//            downb.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    keyPressed = 40;
+//                    handle();
+//                }
+//            });
+//            leftb.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    keyPressed = 37;
+//                    handle();
+//                }
+//            });
+//            rightb.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    keyPressed = 39;
+//                    handle();
+//                }
+//            });
+//            panelbuttons.add(upb);
+//            panelbuttons.add(rightb);
+//            panelbuttons.add(leftb);
+//            panelbuttons.add(downb);
             framePaint();
             frame.setVisible(true);
             frame.add(pmap);
-            frame.add(panelbuttons);
+//            frame.add(panelbuttons);
             frame.setResizable(true);
-            pmap.setMinimumSize(new Dimension(1400, 780));
-            frame.setPreferredSize(new Dimension(1500, 800));
+//            pmap.setMinimumSize(new Dimension(1400, 780));
+            pmap.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+//            frame.setPreferredSize(new Dimension(1500, 800));
+            frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             processKeys();
             frame.pack();
