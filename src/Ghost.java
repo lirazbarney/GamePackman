@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Random;
 public class Ghost {
     private NewPanels currentPanel;
-    private int pattern, dir, lastContain = 0, counter = 0;
+    private int dir, lastContain = 0, counter = 0;
+    final int pattern;
     /*
     0 - left
     1 - up

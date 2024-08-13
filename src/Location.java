@@ -1,5 +1,5 @@
 public class Location {
-    private int x, y;
+    private final int x, y;
 
     Location (int x, int y) {
         this.x = x;

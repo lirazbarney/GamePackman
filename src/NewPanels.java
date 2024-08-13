@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NewPanels {
-    private Location loc;
+    private final Location loc;
     private boolean canBeSteppedOn=false;
     private boolean canGhostStep=false;
     private int contain;
     private NewPanels upPanel, nextPanel, beforePanel, downPanel;
-    private JPanel panel;
+    private final JPanel panel;
     NewPanels (int x, int y, int mode) {
         this.loc = new Location(x, y);
         this.panel = new JPanel();
@@ -154,8 +154,6 @@ public class NewPanels {
             return true;
         if (this.canUp() > 1)
             return true;
-        if (this.canBefore() > 1)
-            return true;
-        return false;
+        return this.canBefore() > 1;
     } //this function checks if the ghost can even move
 }
