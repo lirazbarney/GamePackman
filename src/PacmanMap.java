@@ -18,7 +18,7 @@ public class PacmanMap {
     public static Color[][] colorMapGrid = new Color[rows][cols];
     public static NewPanels[][] panelGrid = new NewPanels[rows][cols];
     public static int[][] modes = new int[rows][cols];
-    public static PackmanFigure packguy;
+    public static PackmanFigure pacguy;
     public static BufferedImage pacImg, ballImg, bigBallImg, ghostImg;
     public static JLabel pic;
     public static Component[] componentList;
@@ -37,11 +37,15 @@ public class PacmanMap {
         frame.setLayout(new GridLayout(1, 2));
         pmap.setBorder(BorderFactory.createTitledBorder(""));
         pmap.setLayout(new GridLayout(rows, cols));
+        String line = "";
         for (int x = 0; x < rows; x++) {
+            line = "";
             for (int y = 0; y < cols; y++) {
+                line += "(" + x + "," + y + "):[" + modes[x][y] + "] ";
                 panelGrid[x][y] = new NewPanels(x, y, modes[x][y]);
                 pmap.add(panelGrid[x][y].getPanel());
             }
+            System.out.println(line);
         }
         NewPanels up, next, before, down;
         for (int x = 0; x < rows; x++) {
@@ -66,8 +70,8 @@ public class PacmanMap {
             }
         }
 
-        packguy = new PackmanFigure(panelGrid[startRow][startCol]);
-        packguy.getCurrentPanel().setContain(3);
+        pacguy = new PackmanFigure(panelGrid[startRow][startCol]);
+        pacguy.getCurrentPanel().setContain(3);
         redG = new Ghost(panelGrid[10][14], 0, 7);
         panelbuttons = new JPanel();
         framePaint();
@@ -86,9 +90,34 @@ public class PacmanMap {
         timer.scheduleAtFixedRate(new TimerTask() { //the main game timer, about every 60 fps the game will be updating
             @Override
             public void run() {
-                System.out.println("hello");
                 if (isGameOn) {
-                    framePaint(); // re-updating the screen
+                    if (steps > 0) {
+                        if (redG != null) {
+                            redG.moves(pacguy.getCurrentPanel().getLoc());
+                        }
+                        if (pinkG != null) {
+                            pinkG.moves(pacguy.getCurrentPanel().getLoc());
+                        } else {
+                            if ((panelGrid[10][14].isEmpty()) && (redG != null)) {
+                                pinkG = new Ghost(panelGrid[10][14], 0, 5);
+                            }
+                        }
+                        if (cyanG != null) {
+                            cyanG.moves(pacguy.getCurrentPanel().getLoc());
+                        } else {
+                            if ((panelGrid[10][14].isEmpty()) && (pinkG != null)) {
+                                cyanG = new Ghost(panelGrid[10][14], 0, 6);
+                            }
+                        }
+                        if (orangeG != null) {
+                            orangeG.moves(pacguy.getCurrentPanel().getLoc());
+                        } else {
+                            if ((panelGrid[10][14].isEmpty()) && (cyanG != null)) {
+                                orangeG = new Ghost(panelGrid[10][14], 0, 4);
+                            }
+                        }
+                        framePaint(); // re-updating the screen
+                    }
                 } else {
                     timer.cancel(); // Stop the timer if the game is over
                     if (hasWon) {
@@ -125,7 +154,7 @@ public class PacmanMap {
                         }
                         break;
                     case 3:
-                        switch (packguy.getDir()) {
+                        switch (pacguy.getDir()) {
                             case 0:
                                 try {
                                     pacImg = ImageIO.read(new File("assets/leftPac.png"));
@@ -520,43 +549,43 @@ public class PacmanMap {
     }
 
     public static void moveRight() {
-        if ((packguy.getCurrentPanel().canNext() == 1) || (packguy.getCurrentPanel().canNext() == 3)) {
-            packguy.setDir(2);
-            packguy.getCurrentPanel().setContain(0);
-            packguy.setCurrentPanel(packguy.getCurrentPanel().getNextPanel());
-            System.out.println("You moved right! " + packguy.toString());
+        if ((pacguy.getCurrentPanel().canNext() == 1) || (pacguy.getCurrentPanel().canNext() == 3)) {
+            pacguy.setDir(2);
+            pacguy.getCurrentPanel().setContain(0);
+            pacguy.setCurrentPanel(pacguy.getCurrentPanel().getNextPanel());
+            System.out.println("You moved right! " + pacguy.toString());
         } else
-            System.out.println("You didn't move! " + packguy.toString());
+            System.out.println("You didn't move! " + pacguy.toString());
     }
 
     public static void moveDown() {
-        if ((packguy.getCurrentPanel().canDown() == 1) || (packguy.getCurrentPanel().canDown() == 3)) {
-            packguy.setDir(3);
-            packguy.getCurrentPanel().setContain(0);
-            packguy.setCurrentPanel(packguy.getCurrentPanel().getDownPanel());
-            System.out.println("You moved down! " + packguy.toString());
+        if ((pacguy.getCurrentPanel().canDown() == 1) || (pacguy.getCurrentPanel().canDown() == 3)) {
+            pacguy.setDir(3);
+            pacguy.getCurrentPanel().setContain(0);
+            pacguy.setCurrentPanel(pacguy.getCurrentPanel().getDownPanel());
+            System.out.println("You moved down! " + pacguy.toString());
         } else
-            System.out.println("You didn't move! " + packguy.toString());
+            System.out.println("You didn't move! " + pacguy.toString());
     }
 
     public static void moveUp() {
-        if ((packguy.getCurrentPanel().canUp() == 1) || (packguy.getCurrentPanel().canUp() == 3)) {
-            packguy.setDir(1);
-            packguy.getCurrentPanel().setContain(0);
-            packguy.setCurrentPanel(packguy.getCurrentPanel().getUpPanel());
-            System.out.println("You moved up! " + packguy.toString());
+        if ((pacguy.getCurrentPanel().canUp() == 1) || (pacguy.getCurrentPanel().canUp() == 3)) {
+            pacguy.setDir(1);
+            pacguy.getCurrentPanel().setContain(0);
+            pacguy.setCurrentPanel(pacguy.getCurrentPanel().getUpPanel());
+            System.out.println("You moved up! " + pacguy.toString());
         } else
-            System.out.println("You didn't move! " + packguy.toString());
+            System.out.println("You didn't move! " + pacguy.toString());
     }
 
     public static void moveLeft() {
-        if ((packguy.getCurrentPanel().canBefore() == 1) || (packguy.getCurrentPanel().canBefore() == 3)) {
-            packguy.setDir(0);
-            packguy.getCurrentPanel().setContain(0);
-            packguy.setCurrentPanel(packguy.getCurrentPanel().getBeforePanel());
-            System.out.println("You moved left! " + packguy.toString());
+        if ((pacguy.getCurrentPanel().canBefore() == 1) || (pacguy.getCurrentPanel().canBefore() == 3)) {
+            pacguy.setDir(0);
+            pacguy.getCurrentPanel().setContain(0);
+            pacguy.setCurrentPanel(pacguy.getCurrentPanel().getBeforePanel());
+            System.out.println("You moved left! " + pacguy.toString());
         } else
-            System.out.println("You didn't move! " + packguy.toString());
+            System.out.println("You didn't move! " + pacguy.toString());
     }
 
     public static void handle() {
@@ -571,15 +600,11 @@ public class PacmanMap {
         steps++;
         if (steps == 1) {
             lastkey = keyPressed;
-            Thread tr = new Thread(new Runnable() {
+            /*Thread tr = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     while (true) {
-                        isGot = redG.moves(packguy.getCurrentPanel().getLoc());
-                        if (isGot) {
-                            isGameOn = false;
-                        }
-//                        framePaint();
+                        redG.moves(pacguy.getCurrentPanel().getLoc());
                         try {
                             Thread.sleep(redTimer);
                         } catch (InterruptedException e) {
@@ -598,12 +623,8 @@ public class PacmanMap {
                                 pinkG = new Ghost(panelGrid[10][14], 0, 5);
                             }
                         } else {
-                            isGot = pinkG.moves(packguy.getCurrentPanel().getLoc());
-                            if (isGot) {
-                                isGameOn = false;
-                            }
+                            pinkG.moves(pacguy.getCurrentPanel().getLoc());
                         }
-                        //framePaint();
                         try {
                             Thread.sleep(pinkTimer);
                         } catch (InterruptedException e) {
@@ -622,12 +643,8 @@ public class PacmanMap {
                                 orangeG = new Ghost(panelGrid[10][14], 0, 4);
                             }
                         } else {
-                            isGot = orangeG.moves(packguy.getCurrentPanel().getLoc());
-                            if (isGot) {
-                                isGameOn = false;
-                            }
+                            orangeG.moves(pacguy.getCurrentPanel().getLoc());
                         }
-                        //framePaint();
                         try {
                             Thread.sleep(orangeTimer);
                         } catch (InterruptedException e) {
@@ -646,13 +663,8 @@ public class PacmanMap {
                                 cyanG = new Ghost(panelGrid[10][14], 0, 6);
                             }
                         } else {
-                            isGot = cyanG.moves(packguy.getCurrentPanel().getLoc());
-                            if (isGot) {
-                                isGameOn = false;
-                            }
+                            cyanG.moves(pacguy.getCurrentPanel().getLoc());
                         }
-
-                        //framePaint();
                         try {
                             Thread.sleep(cyanTimer);
                         } catch (InterruptedException e) {
@@ -661,7 +673,7 @@ public class PacmanMap {
                     }
                 }
             });
-            tc.start();
+            tc.start(); */
         }
         Thread t2 = new Thread(new Runnable() {
             @Override
@@ -681,9 +693,9 @@ public class PacmanMap {
                             moveDown();
                             break;
                     }
-                    if (packguy.getCurrentPanel().getContain() == 1)
+                    if (pacguy.getCurrentPanel().getContain() == 1)
                         ballsCount--;
-                    packguy.getCurrentPanel().setContain(3);
+                    pacguy.getCurrentPanel().setContain(3);
                     if (ballsCount == 0) {
                         isGameOn = false;
                         hasWon = true;
@@ -713,7 +725,7 @@ public class PacmanMap {
                         if (e.getID() == KeyEvent.KEY_PRESSED) {
                             keyPressed = e.getKeyCode();
 
-                            packguy.getCurrentPanel().setContain(0);
+                            pacguy.getCurrentPanel().setContain(0);
                             boolean isMoved = false;
 
                             handle();
@@ -727,6 +739,6 @@ public class PacmanMap {
         isGameOn = true;
         MapPainting();
         new PacmanMap();
-        System.out.println("start position: " + packguy.toString());
+        System.out.println("start position: " + pacguy.toString());
     }
 }

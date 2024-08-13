@@ -147,4 +147,15 @@ public class NewPanels {
             return ((this.loc.getX() - loc.getX()) == 1);
         return false;
     }
+    public boolean canMove () {
+        if (this.canDown() > 1)
+            return true;
+        if (this.canNext () > 1)
+            return true;
+        if (this.canUp() > 1)
+            return true;
+        if (this.canBefore() > 1)
+            return true;
+        return false;
+    } //this function checks if the ghost can even move
 }

@@ -46,4 +46,7 @@ public class Location {
             return 7;//המיקום שקיבלתי הוא בדיוק למעלה
         return 8;//המיקום שקיבלתי הוא במיקום יחסי למעלה-ימין
     }
+    public boolean isInRadius(Location loc, int radius) {
+        return (Math.abs(this.x - loc.getX()) <= radius) && (Math.abs(this.y - loc.getY()) <= radius);
+    }
 }
