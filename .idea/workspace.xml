@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9529bdc1-f173-4cc7-aa8c-42865b0d5924" name="Default Changelist" comment="minor fixed (mostly about the how the code is written)&#10;big updates coming soon">
+    <list default="true" id="9529bdc1-f173-4cc7-aa8c-42865b0d5924" name="Default Changelist" comment="removed warnings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/Ghost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/NewPanels.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/NewPanels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamePackman/PacmanMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewPanels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewPanels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PacmanMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PacmanMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +100,31 @@
       <option name="project" value="LOCAL‎" />
       <updated>1723565570942</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎-00003" summary="finished for today, very far from perfection">
+      <option name="closed" value="true" />
+      <created>1723586686022</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723586686022</updated>
+    </task>
+    <task id="LOCAL‎-00004" summary="removed warnings">
+      <option name="closed" value="true" />
+      <created>1723586907226</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723586907226</updated>
+    </task>
+    <task id="LOCAL‎-00005" summary="removed warnings">
+      <option name="closed" value="true" />
+      <created>1723586967174</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723586967174</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,7 +140,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="minor fixed (mostly about the how the code is written)&#10;big updates coming soon" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixed (mostly about the how the code is written)&#10;big updates coming soon" />
+    <MESSAGE value="finished for today, very far from perfection" />
+    <MESSAGE value="removed warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed warnings" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
