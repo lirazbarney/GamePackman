@@ -8,6 +8,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PacmanMap {
     public static final int rows = 31, cols = 28;
@@ -28,99 +30,78 @@ public class PacmanMap {
     public static boolean isGot = false;
     public static int keyPressed, lastkey;
     public static int cyanTimer=333, redTimer=333, orangeTimer=333, pinkTimer=333;
+    public  static boolean isGameOn = false;
+    public static boolean hasWon = false;
 
     PacmanMap() {
-        if (steps == 0) {
-            frame.setLayout(new GridLayout(1, 2));
-            pmap.setBorder(BorderFactory.createTitledBorder(""));
-            pmap.setLayout(new GridLayout(rows, cols));
-            for (int x = 0; x < rows; x++) {
-                for (int y = 0; y < cols; y++) {
-                    panelGrid[x][y] = new NewPanels(x, y, modes[x][y]);
-                    pmap.add(panelGrid[x][y].getPanel());
-                }
+        frame.setLayout(new GridLayout(1, 2));
+        pmap.setBorder(BorderFactory.createTitledBorder(""));
+        pmap.setLayout(new GridLayout(rows, cols));
+        for (int x = 0; x < rows; x++) {
+            for (int y = 0; y < cols; y++) {
+                panelGrid[x][y] = new NewPanels(x, y, modes[x][y]);
+                pmap.add(panelGrid[x][y].getPanel());
             }
-            NewPanels up, next, before, down;
-            for (int x = 0; x < rows; x++) {
-                for (int y = 0; y < cols; y++) {
-                    if (x == 0)
-                        up = null;
-                    else
-                        up = panelGrid[x - 1][y];
-                    if (x == rows - 1)
-                        down = null;
-                    else
-                        down = panelGrid[x + 1][y];
-                    if (y == 0)
-                        before = null;
-                    else
-                        before = panelGrid[x][y - 1];
-                    if (y == cols - 1)
-                        next = null;
-                    else
-                        next = panelGrid[x][y + 1];
-                    panelGrid[x][y].setPanels(up, down, next, before);
-                }
-            }
-
-            packguy = new PackmanFigure(panelGrid[startRow][startCol]);
-            packguy.getCurrentPanel().setContain(3);
-            redG = new Ghost(panelGrid[10][14], 0, 7);
-            panelbuttons = new JPanel();
-//            panelbuttons.setBorder(BorderFactory.createTitledBorder(""));
-//            panelbuttons.setLayout(new FlowLayout());
-//            upb = new JButton("up button");
-//            downb = new JButton("down button");
-//            leftb = new JButton("left button");
-//            rightb = new JButton("right button");
-//            upb.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    keyPressed = 38;
-//                    handle();
-//                }
-//            });
-//            downb.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    keyPressed = 40;
-//                    handle();
-//                }
-//            });
-//            leftb.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    keyPressed = 37;
-//                    handle();
-//                }
-//            });
-//            rightb.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    keyPressed = 39;
-//                    handle();
-//                }
-//            });
-//            panelbuttons.add(upb);
-//            panelbuttons.add(rightb);
-//            panelbuttons.add(leftb);
-//            panelbuttons.add(downb);
-            framePaint();
-            frame.setVisible(true);
-            frame.add(pmap);
-//            frame.add(panelbuttons);
-            frame.setResizable(true);
-//            pmap.setMinimumSize(new Dimension(1400, 780));
-            pmap.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-//            frame.setPreferredSize(new Dimension(1500, 800));
-            frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            processKeys();
-            frame.pack();
         }
+        NewPanels up, next, before, down;
+        for (int x = 0; x < rows; x++) {
+            for (int y = 0; y < cols; y++) {
+                if (x == 0)
+                    up = null;
+                else
+                    up = panelGrid[x - 1][y];
+                if (x == rows - 1)
+                    down = null;
+                else
+                    down = panelGrid[x + 1][y];
+                if (y == 0)
+                    before = null;
+                else
+                    before = panelGrid[x][y - 1];
+                if (y == cols - 1)
+                    next = null;
+                else
+                    next = panelGrid[x][y + 1];
+                panelGrid[x][y].setPanels(up, down, next, before);
+            }
+        }
+
+        packguy = new PackmanFigure(panelGrid[startRow][startCol]);
+        packguy.getCurrentPanel().setContain(3);
+        redG = new Ghost(panelGrid[10][14], 0, 7);
+        panelbuttons = new JPanel();
+        framePaint();
+        frame.setVisible(true);
+        frame.add(pmap);
+        frame.setResizable(true);
+        pmap.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        processKeys();
+        frame.pack();
+        isGameOn = true;
+        Timer timer = new Timer();
+        long delay = 0;
+        long period = 16; // about 60 FPS
+        timer.scheduleAtFixedRate(new TimerTask() { //the main game timer, about every 60 fps the game will be updating
+            @Override
+            public void run() {
+                System.out.println("hello");
+                if (isGameOn) {
+                    framePaint(); // re-updating the screen
+                } else {
+                    timer.cancel(); // Stop the timer if the game is over
+                    if (hasWon) {
+                        JOptionPane.showMessageDialog(frame, "you won! :)");
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "you lost! :(");
+                    }
+                }
+            }
+        }, delay, period);
     }
 
-    public static void framePaint() {
+    public static void framePaint() { //this function update the screen
         for (int i = 1; i < rows - 1; i++) {
             for (int j = 1; j < cols - 1; j++) {
                 componentList = panelGrid[i][j].getPanel().getComponents();
@@ -330,8 +311,8 @@ public class PacmanMap {
         frame.validate();
     }
 
-    public static void MapPainting() //הפונקציה הזאת צובעת את המפה בהתאם למה שמוחלט מראש - ניתן לשנות את העיצוב של המפה דרך הפונקציה הזאת
-    {
+    public static void MapPainting() { //this function load the map to its default/starting setting
+        //הפונקציה הזאת צובעת את המפה בהתאם למה שמוחלט מראש - ניתן לשנות את העיצוב של המפה דרך הפונקציה הזאת
         for (int i = 1; i < (cols - 1); i++)
             for (int j = 1; j < (rows - 1); j++)
                 modes[j][i] = 1;
@@ -539,8 +520,8 @@ public class PacmanMap {
     }
 
     public static void moveRight() {
-        packguy.setDir(2);
         if ((packguy.getCurrentPanel().canNext() == 1) || (packguy.getCurrentPanel().canNext() == 3)) {
+            packguy.setDir(2);
             packguy.getCurrentPanel().setContain(0);
             packguy.setCurrentPanel(packguy.getCurrentPanel().getNextPanel());
             System.out.println("You moved right! " + packguy.toString());
@@ -549,8 +530,8 @@ public class PacmanMap {
     }
 
     public static void moveDown() {
-        packguy.setDir(3);
         if ((packguy.getCurrentPanel().canDown() == 1) || (packguy.getCurrentPanel().canDown() == 3)) {
+            packguy.setDir(3);
             packguy.getCurrentPanel().setContain(0);
             packguy.setCurrentPanel(packguy.getCurrentPanel().getDownPanel());
             System.out.println("You moved down! " + packguy.toString());
@@ -559,8 +540,8 @@ public class PacmanMap {
     }
 
     public static void moveUp() {
-        packguy.setDir(1);
         if ((packguy.getCurrentPanel().canUp() == 1) || (packguy.getCurrentPanel().canUp() == 3)) {
+            packguy.setDir(1);
             packguy.getCurrentPanel().setContain(0);
             packguy.setCurrentPanel(packguy.getCurrentPanel().getUpPanel());
             System.out.println("You moved up! " + packguy.toString());
@@ -569,8 +550,8 @@ public class PacmanMap {
     }
 
     public static void moveLeft() {
-        packguy.setDir(0);
         if ((packguy.getCurrentPanel().canBefore() == 1) || (packguy.getCurrentPanel().canBefore() == 3)) {
+            packguy.setDir(0);
             packguy.getCurrentPanel().setContain(0);
             packguy.setCurrentPanel(packguy.getCurrentPanel().getBeforePanel());
             System.out.println("You moved left! " + packguy.toString());
@@ -581,9 +562,10 @@ public class PacmanMap {
     public static void handle() {
         int count = 0;
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++)
+            for (int j = 0; j < cols; j++) {
                 if (panelGrid[i][j].getContain() == 1)
                     count++;
+            }
         }
         ballsCount = count;
         steps++;
@@ -595,10 +577,9 @@ public class PacmanMap {
                     while (true) {
                         isGot = redG.moves(packguy.getCurrentPanel().getLoc());
                         if (isGot) {
-                            while (true)
-                                JOptionPane.showMessageDialog(frame, "you lost!");
+                            isGameOn = false;
                         }
-                        framePaint();
+//                        framePaint();
                         try {
                             Thread.sleep(redTimer);
                         } catch (InterruptedException e) {
@@ -619,8 +600,7 @@ public class PacmanMap {
                         } else {
                             isGot = pinkG.moves(packguy.getCurrentPanel().getLoc());
                             if (isGot) {
-                                while (true)
-                                    JOptionPane.showMessageDialog(frame, "you lost!");
+                                isGameOn = false;
                             }
                         }
                         //framePaint();
@@ -644,8 +624,7 @@ public class PacmanMap {
                         } else {
                             isGot = orangeG.moves(packguy.getCurrentPanel().getLoc());
                             if (isGot) {
-                                while (true)
-                                    JOptionPane.showMessageDialog(frame, "you lost!");
+                                isGameOn = false;
                             }
                         }
                         //framePaint();
@@ -669,8 +648,7 @@ public class PacmanMap {
                         } else {
                             isGot = cyanG.moves(packguy.getCurrentPanel().getLoc());
                             if (isGot) {
-                                while (true)
-                                    JOptionPane.showMessageDialog(frame, "you lost!");
+                                isGameOn = false;
                             }
                         }
 
@@ -707,15 +685,15 @@ public class PacmanMap {
                         ballsCount--;
                     packguy.getCurrentPanel().setContain(3);
                     if (ballsCount == 0) {
-                        while (true)
-                            JOptionPane.showMessageDialog(frame, "you won!");
+                        isGameOn = false;
+                        hasWon = true;
                     }
                     try {
                         Thread.sleep(250);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
-                    framePaint();
+//                    framePaint();
                 }
             }
         });
@@ -728,7 +706,7 @@ public class PacmanMap {
         framePaint();
     }
 
-    private void processKeys() {
+    private void processKeys () {
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(
                 new KeyEventDispatcher() {
                     public boolean dispatchKeyEvent(KeyEvent e) {
@@ -745,7 +723,8 @@ public class PacmanMap {
                 });
     }
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
+        isGameOn = true;
         MapPainting();
         new PacmanMap();
         System.out.println("start position: " + packguy.toString());
